@@ -1,18 +1,3 @@
-// // TODO: Include packages needed for this application
-
-// // TODO: Create an array of questions for user input
-// const questions = [];
-
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
-
-
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
@@ -74,7 +59,14 @@ const promptReadme = () => {
           type: 'checkbox',
           name: 'badges',
           message: 'What badges do you want? (Check all that apply)',
-          choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node']
+          choices: ['MIT', 'GNU']
+        },
+
+        {
+          type: 'checkbox',
+          name: 'license',
+          message: 'What license(s) do you want? (Check all that apply)',
+          choices: ['MIT', 'GNU']
         },
       ])
       .then((inquirerData) => {
