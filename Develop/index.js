@@ -47,39 +47,62 @@ const promptReadme = () => {
           message: 'What languages did you use? (Check all that apply)',
           choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node']
         },
-       
+
         {
           type: 'confirm',
-          name: 'badges',
-          message: 'Would you like to add badges to your README?',
+          name: 'license1',
+          message: 'Would you like to add a license to your README?',
           default: false
         },
 
         {
           type: 'checkbox',
-          name: 'badges',
-          message: 'What badges do you want? (Check all that apply)',
-          choices: ['MIT', 'GNU']
+          name: 'license2',
+          message: 'What license(s) do you want? (Check all that apply)',
+          choices: ['agpl-3.0', 'gpl-3.0', 'apache-2.0', 'lgpl-3.0', 'mpl-2.0', 'mit', 'bsl-1.0', 'unlicense', ''],
+          when: (answers) => answers.license1 === true
         },
 
         {
-          type: 'checkbox',
-          name: 'license',
-          message: 'What license(s) do you want? (Check all that apply)',
-          choices: ['MIT', 'GNU']
+          type: 'input',
+          name: 'githubUser',
+          message: 'What is your github userName?',
+          validate: githubUserInput => {
+            if (githubUserInput) {
+              return true;
+            } else {
+              console.log('You need to enter a github userName!');
+              return false;
+            }
+          }
         },
+
+        {
+          type: 'input',
+          name: 'userEmail',
+          message: 'What is your email address?',
+          validate: githubUserInput => {
+            if (githubUserInput) {
+              return true;
+            } else {
+              console.log('You need to enter an email address!');
+              return false;
+            }
+          }
+        }
       ])
       .then((inquirerData) => {
-        const input = generateMD(inquirerData);
-        writeToFile(input);
+        // generateMD.renderLicenseBadge(inquirerData.license2);
+        writeToFile(inquirerData);
       }
       )
   };
 
 // TODO: Create a function to write README file
 function writeToFile(data) {
-    return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/README.md', data, err => {
+  // const newData = generateMD.generateMarkdown(data);  
+  return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/README.md', generateMD.generateMarkdown({ ...data }), err => {
             if (err) {
                 reject(err);
                 return;
