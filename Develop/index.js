@@ -89,6 +89,12 @@ const promptReadme = () => {
               return false;
             }
           }
+        },
+
+        {
+          type:'input',
+          name: 'contributors',
+          message: 'List all contributors, separated by commas.'
         }
       ])
       .then((inquirerData) => {
