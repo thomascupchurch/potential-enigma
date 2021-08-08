@@ -1,5 +1,6 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 
+const inquirer = require("inquirer");
 const { url } = require("inspector");
 
 
@@ -34,14 +35,32 @@ function renderLicenseSection(license) {
   }
 }
 
+function renderTableOfContents() {
+  return `Installation
+
+  Usage
+
+  Languages
+
+  Contributing
+
+  Tests
+
+  Questions
+  `
+}
+
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
   ${renderLicenseBadge(data.license2)}
   ## Description
   ## Table of Contents
+  ${renderTableOfContents()}
   ## Installation
   ## Usage
+  ##Languages
    
   ${renderLicenseSection(data.license2)}
   ${renderLicenseLink(data.license2)}
@@ -49,7 +68,7 @@ function generateMarkdown(data) {
   ${data.contributors}
   ## Tests
   ## Questions:
-  Learn more at github.com/${data.githubuser} 
+  Learn more at github.com/${data.githubUser} 
 
   Email the Developer at ${data.userEmail}`;
 
@@ -58,6 +77,6 @@ function generateMarkdown(data) {
 
 module.exports.renderLicenseBadge = renderLicenseBadge;
 module.exports.generateMarkdown = generateMarkdown;
-
+module.exports.renderTableOfContents = renderTableOfContents;
 
 // THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions

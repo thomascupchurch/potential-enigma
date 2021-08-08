@@ -79,6 +79,12 @@ const promptReadme = () => {
 
         {
           type: 'input',
+          name: 'installation',
+          message: 'What installation instructions do you want to include?',
+        },
+
+        {
+          type: 'input',
           name: 'userEmail',
           message: 'What is your email address?',
           validate: githubUserInput => {
