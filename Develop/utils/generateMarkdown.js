@@ -55,19 +55,29 @@ function renderTableOfContents() {
 function generateMarkdown(data) {
   return `# ${data.title}
   ${renderLicenseBadge(data.license2)}
+  
+  Table of Contents
+  =================
+  * [Description](##Description)
+  * [Screenshot](##Screenshot)
+  * [Installation](##Installation)
+  * [Usage](##Usage)
+  * [Languages](##Languages)
+  * [License](##License)
+  * [Questions](##Questions)
+
+
   ## Description
-  ## Table of Contents
-  ${renderTableOfContents()}
+  ## Screenshot
   ## Installation
   ## Usage
-  ##Languages
-   
+  ## Languages
   ${renderLicenseSection(data.license2)}
   ${renderLicenseLink(data.license2)}
   ## Contributing: 
   ${data.contributors}
   ## Tests
-  ## Questions:
+  ## Questions
   Learn more at github.com/${data.githubUser} 
 
   Email the Developer at ${data.userEmail}`;
