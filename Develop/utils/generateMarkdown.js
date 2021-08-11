@@ -35,20 +35,20 @@ function renderLicenseSection(license) {
   }
 }
 
-function renderTableOfContents() {
-  return `Installation
+// function renderTableOfContents() {
+//   return `Installation
 
-  Usage
+//   Usage
 
-  Languages
+//   Languages
 
-  Contributing
+//   Contributing
 
-  Tests
+//   Tests
 
-  Questions
-  `
-}
+//   Questions
+//   `
+// }
 
 
 // TODO: Create a function to generate markdown for README
@@ -58,13 +58,13 @@ function generateMarkdown(data) {
   
   Table of Contents
   =================
-  * [Description](##Description)
-  * [Screenshot](##Screenshot)
-  * [Installation](##Installation)
-  * [Usage](##Usage)
-  * [Languages](##Languages)
-  * [License](##License)
-  * [Questions](##Questions)
+  * [Description](#description)
+  * [Screenshot](#screenshot)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Languages](#languages)
+  * [License](#license)
+  * [Questions](#questions)
 
 
   ## Description
@@ -87,6 +87,6 @@ function generateMarkdown(data) {
 
 module.exports.renderLicenseBadge = renderLicenseBadge;
 module.exports.generateMarkdown = generateMarkdown;
-module.exports.renderTableOfContents = renderTableOfContents;
+// module.exports.renderTableOfContents = renderTableOfContents;
 
 // THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions

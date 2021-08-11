@@ -99,8 +99,8 @@ const promptReadme = () => {
 
         {
           type:'input',
-          name: 'contributors',
-          message: 'List all contributors, separated by commas.'
+          name: 'contributing',
+          message: 'What instructions do you have for potential contributors?'
         }
       ])
       .then((inquirerData) => {
