@@ -85,6 +85,12 @@ const promptReadme = () => {
 
         {
           type: 'input',
+          name: 'usage',
+          message: 'What usage directions would you like to share?'
+        },
+
+        {
+          type: 'input',
           name: 'userEmail',
           message: 'What is your email address?',
           validate: githubUserInput => {
@@ -101,6 +107,18 @@ const promptReadme = () => {
           type:'input',
           name: 'contributing',
           message: 'What instructions do you have for potential contributors?'
+        },
+
+        {
+          type: 'input',
+          name: 'tests',
+          message: 'What tests would you like to include?'
+        },
+
+        {
+          type: 'input',
+          name: 'screenshot',
+          message: 'Enter the url for any screenshot you have.'
         }
       ])
       .then((inquirerData) => {

@@ -6,7 +6,9 @@ const { url } = require("inspector");
 
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  return `![github license](https://img.shields.io/badge/license-${license}-blue)`
+  // return `![github license](https://img.shields.io/badge/license-${license}-blue)`
+
+  return `![license badge](https://img.shields.io/static/v1?label=license&message=${license}&color=lightgreen)`
 }
   
 
@@ -41,19 +43,27 @@ function generateMarkdown(data) {
   * [Usage](#usage)
   * [Languages](#languages)
   * [License](#license)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
   * [Questions](#questions)
 
 
   ## Description
+  ${data.description}
   ## Screenshot
+  ![screenshot](${data.screenshot})
   ## Installation
+  ${data.installation}
   ## Usage
+  ${data.usage}
   ## Languages
+  ${data.languages}
   ${renderLicenseSection(data.license2)}
   ${renderLicenseLink(data.license2)}
   ## Contributing: 
-  ${data.contributors}
+  ${data.contributing}
   ## Tests
+  ${data.tests}
   ## Questions
   Learn more at github.com/${data.githubUser} 
 
